@@ -1,3 +1,5 @@
+pub mod day1_1;
+
 fn main() {
-    println!("Hello, world!");
+    day1_1::run();
 }
