@@ -1,7 +1,7 @@
 use std::{fs::File, io::Read};
 
 pub fn run() {
-    let mut file = File::open("src/day1_1.txt").unwrap();
+    let mut file = File::open("src/day1_2.txt").expect("File not found");
     let mut contents = String::new();
 
     file.read_to_string(&mut contents).unwrap();
@@ -18,9 +18,16 @@ pub fn run() {
                 preresult.push(current_char);
             }
         }
-        let result = preresult.to_owned().chars().next().unwrap().to_string()
-            + &preresult.to_owned().chars().last().unwrap().to_string();
-        new_vec.push(result.parse().unwrap());
+        let a = preresult.clone();
+        let b = preresult.clone();
+
+        if preresult.len() > 0 {
+            new_vec.push(
+                (a.chars().next().unwrap().to_string() + &b.chars().last().unwrap().to_string())
+                    .parse()
+                    .unwrap(),
+            );
+        }
     }
 
     let res: u32 = new_vec.iter().sum();
