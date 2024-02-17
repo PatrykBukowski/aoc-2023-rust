@@ -1,7 +1,7 @@
 use std::{fs::File, io::Read};
 
-pub fn run() {
-    let contents = read_content("src/day1_2.txt");
+pub fn run(filename: &str) {
+    let contents = read_content(filename);
     let mut new_vec: Vec<u32> = Vec::new();
     for element in contents {
         if element.len() == 0 {
