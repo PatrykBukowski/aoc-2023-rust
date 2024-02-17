@@ -18,20 +18,22 @@ fn read_content(filename: &str) -> Vec<String> {
     let mut contents = String::new();
     let mut result: Vec<String> = Vec::new();
     file.read_to_string(&mut contents).unwrap_or(0);
-    for res in contents.split("\n") {
-        result.push(res.to_string());
-    }
+    contents
+        .split('\n')
+        .for_each(|a| result.push(a.to_string()));
     result
 }
 
 fn get_value_from_string(value: String) -> u32 {
-    let mut result = String::new();
+    let mut values = Vec::new();
     for current_char in value.chars() {
         if current_char.is_digit(10) {
-            result.push(current_char);
+            values.push(current_char.to_string());
         }
     }
-    let result = result.to_owned().chars().next().unwrap().to_string()
-        + &result.chars().last().unwrap().to_string();
+    let mut result: Vec<String> = Vec::new();
+    result.push(values.first().unwrap_or(&String::new()).to_string());
+    result.push(values.last().unwrap_or(&String::new()).to_string());
+    let result = result.concat();
     result.parse().unwrap_or(0)
 }
