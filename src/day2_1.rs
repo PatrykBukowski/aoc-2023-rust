@@ -3,6 +3,7 @@ use std::{fs::File, io::Read};
 const RED_CUBES: u8 = 12;
 const GREEN_CUBES: u8 = 13;
 const BLUE_CUBES: u8 = 14;
+
 pub fn run(filename: &str) {
     let contents = read_content(filename);
     let mut content_vec: Vec<u16> = Vec::new();
@@ -20,10 +21,12 @@ fn read_content(filename: &str) -> Vec<String> {
     let mut file = File::open(filename).expect("File not found");
     let mut contents = String::new();
     let mut result: Vec<String> = Vec::new();
+
     file.read_to_string(&mut contents).unwrap_or(0);
     contents
         .split('\n')
         .for_each(|a| result.push(a.to_string()));
+
     result
 }
 
