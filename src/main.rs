@@ -3,6 +3,7 @@ pub mod day1_2;
 pub mod day2_1;
 pub mod day2_2;
 pub mod day3_1;
+pub mod day3_2;
 
 fn main() {
     day1_1::run("src/day1_1_test.txt");
@@ -15,4 +16,6 @@ fn main() {
     day2_2::run("src/day2_2.txt");
     day3_1::run("src/day3_1_test.txt");
     day3_1::run("src/day3_1.txt");
+    day3_2::run("src/day3_2_test.txt");
+    day3_2::run("src/day3_2.txt");
 }
